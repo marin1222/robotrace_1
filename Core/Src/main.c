@@ -25,7 +25,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -104,7 +103,6 @@ int main(void)
     HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,i%2);
     HAL_Delay(1000);
     i++;
-    printf("%d",i);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
