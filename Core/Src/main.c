@@ -93,6 +93,9 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   int i=0;
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) { Error_Handler(); }
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK) { Error_Handler(); }
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,9 +103,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,i%2);
-    HAL_Delay(1000);
-    i++;
+
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 100);
+    HAL_Delay(500);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 999); 
+    HAL_Delay(500);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
