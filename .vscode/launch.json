@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/robotorace_2.elf",
+            "request": "launch",
+            "preLaunchTask": "Build project",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "C:\\tools\\gcc-arm-none-eabi-10.3-2021.10\\bin\\",
+            "serverpath": "C:\\Program Files\\SEGGER\\JLink\\JLinkGDBServerCL.exe",
+            "device": "STM32F303K8",
+            "interface": "swd",
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 16000000,
+                "swoFrequency": 8000000,
+                "source": "probe",
+                "decoders": [
+                    {
+                        "label": "SWO output",
+                        "type": "console",
+                        "port": 0,
+                        "showOnStartup": true,
+                        "encoding": "ascii"
+                    }
+                ]
+            }
+        }
+    ]
+}
