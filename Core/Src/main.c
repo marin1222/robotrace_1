@@ -19,12 +19,14 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -66,6 +68,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+  setbuf(stdout, NULL);
 
   /* USER CODE END 1 */
 
@@ -87,15 +90,25 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART2_UART_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  int i=0;
   if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) { Error_Handler(); }
   if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK) { Error_Handler(); }
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
+  uint16_t analog1[2];
+  uint16_t analog2[4];
+  if (HAL_ADC_Start_DMA(&hadc1, (uint32_t *) analog1, 2) != HAL_OK){
+       Error_Handler();
+  }
+  if (HAL_ADC_Start_DMA(&hadc2, (uint32_t *) analog2, 4) != HAL_OK){
+       Error_Handler();
+  }
+  char buf[1];
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -104,12 +117,11 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 100);
-    HAL_Delay(500);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 999); 
-    HAL_Delay(500);
-
     /* USER CODE BEGIN 3 */
+    HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,analog2[2]%2);
+    HAL_GPIO_WritePin(LED_3_GPIO_Port,LED_3_Pin,analog2[1]%2);
+    HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,analog2[3]%2);
+    HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
@@ -151,8 +163,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1|RCC_PERIPHCLK_ADC12;
-  PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1;
   PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
@@ -164,11 +175,7 @@ void SystemClock_Config(void)
 
 int _write(int file, char *ptr, int len)
 {
-  int DataIdx;
-  for(DataIdx=0; DataIdx<len; DataIdx++)
-  {
-    ITM_SendChar(*ptr++);
-  }
+  HAL_UART_Transmit(&huart2,(uint8_t *)ptr,len,10);
   return len;
 }
 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
   28:Core/Src/usart.c **** 
   29:Core/Src/usart.c **** /* USART2 init function */
   30:Core/Src/usart.c **** 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 2
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 2
 
 
   31:Core/Src/usart.c **** void MX_USART2_UART_Init(void)
@@ -86,10 +86,10 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
   40 0002 0B48     		ldr	r0, .L5
   41 0004 0B4B     		ldr	r3, .L5+4
   42 0006 0360     		str	r3, [r0]
-  42:Core/Src/usart.c ****   huart2.Init.BaudRate = 38400;
+  42:Core/Src/usart.c ****   huart2.Init.BaudRate = 115200;
   43              		.loc 1 42 3 is_stmt 1 view .LVU3
   44              		.loc 1 42 24 is_stmt 0 view .LVU4
-  45 0008 4FF41643 		mov	r3, #38400
+  45 0008 4FF4E133 		mov	r3, #115200
   46 000c 4360     		str	r3, [r0, #4]
   43:Core/Src/usart.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   47              		.loc 1 43 3 is_stmt 1 view .LVU5
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
   65              		.loc 1 48 28 is_stmt 0 view .LVU16
   66 001c C361     		str	r3, [r0, #28]
   49:Core/Src/usart.c ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 3
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 3
 
 
   67              		.loc 1 49 3 is_stmt 1 view .LVU17
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
  109              		@ frame_needed = 0, uses_anonymous_args = 0
  110              		.loc 1 62 1 is_stmt 0 view .LVU28
  111 0000 00B5     		push	{lr}
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 4
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 4
 
 
  112              	.LCFI1:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
  139              		.cfi_def_cfa_offset 4
  140              		@ sp needed
  141 001a 5DF804FB 		ldr	pc, [sp], #4
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 5
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 5
 
 
  142              	.LVL4:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
  181              		.loc 1 79 5 is_stmt 1 view .LVU49
   79:Core/Src/usart.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
  182              		.loc 1 79 26 is_stmt 0 view .LVU50
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 6
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 6
 
 
  183 004c 0223     		movs	r3, #2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
  229              		.cfi_offset 14, -4
   93:Core/Src/usart.c **** 
   94:Core/Src/usart.c ****   if(uartHandle->Instance==USART2)
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 7
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 7
 
 
  230              		.loc 1 94 3 is_stmt 1 view .LVU61
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
  263              	.LFE125:
  265              		.global	huart2
  266              		.section	.bss.huart2,"aw",%nobits
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 8
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 8
 
 
  267              		.align	2
@@ -440,22 +440,22 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 1
  281              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
  282              		.file 9 "Core/Inc/main.h"
  283              		.file 10 "Core/Inc/usart.h"
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccynP4kh.s 			page 9
+ARM GAS  C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:20     .text.MX_USART2_UART_Init:00000000 $t
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:26     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:91     .text.MX_USART2_UART_Init:00000030 $d
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:97     .text.HAL_UART_MspInit:00000000 $t
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:103    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:206    .text.HAL_UART_MspInit:00000064 $d
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:211    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:217    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:260    .text.HAL_UART_MspDeInit:00000024 $d
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:271    .bss.huart2:00000000 huart2
-C:\Users\User\AppData\Local\Temp\ccynP4kh.s:267    .bss.huart2:00000000 $d
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:20     .text.MX_USART2_UART_Init:00000000 $t
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:26     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:91     .text.MX_USART2_UART_Init:00000030 $d
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:97     .text.HAL_UART_MspInit:00000000 $t
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:103    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:206    .text.HAL_UART_MspInit:00000064 $d
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:211    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:217    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:260    .text.HAL_UART_MspDeInit:00000024 $d
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:271    .bss.huart2:00000000 huart2
+C:\Users\User\AppData\Local\Temp\cc4uCLrQ.s:267    .bss.huart2:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init
