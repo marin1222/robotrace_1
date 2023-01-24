@@ -96,10 +96,12 @@ int main(void)
   MX_ADC2_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+  int sensL=0,sensR=0;
+  int MotorL=0,MotorR=0;
+  int sensVal=0,sensVal_D=0,sensbuf=0;
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 1);
   if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) { Error_Handler(); }
   if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK) { Error_Handler(); }
-  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
-  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
   uint16_t analog1[2];
   uint16_t analog2[4];
   if (HAL_ADC_Start_DMA(&hadc1, (uint32_t *) analog1, 2) != HAL_OK){
@@ -115,13 +117,23 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,analog2[2]%2);
-    HAL_GPIO_WritePin(LED_3_GPIO_Port,LED_3_Pin,analog2[1]%2);
-    HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,analog2[3]%2);
-    HAL_Delay(100);
+    sensL=analog1[0];
+    sensR=analog1[1];
+    sensVal=sensR-sensL;
+    sensVal_D=sensbuf-sensVal;
+    sensbuf=sensVal;
+    MotorR=((10-((sensVal*0.8)/*-(sensVal_D*0.5)*/))/10);
+    MotorL=((10+((sensVal*0.8)/*-(sensVal_D*0.5)*/))/10);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,analog1[1]);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,analog1[0]);
+    HAL_GPIO_WritePin(LED_1_GPIO_Port,LED_1_Pin,1);
+    //HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,analog2[2]%2);
+    HAL_GPIO_WritePin(LED_3_GPIO_Port,LED_3_Pin,analog1[1]%2);
+    //HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,analog2[3]%2);
   }
   /* USER CODE END 3 */
 }
