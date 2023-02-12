@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
   28:Core/Src/adc.c **** ADC_HandleTypeDef hadc2;
   29:Core/Src/adc.c **** DMA_HandleTypeDef hdma_adc1;
   30:Core/Src/adc.c **** DMA_HandleTypeDef hdma_adc2;
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 2
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 2
 
 
   31:Core/Src/adc.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
   51:Core/Src/adc.c ****   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   63              		.loc 1 51 3 is_stmt 1 view .LVU9
   64              		.loc 1 51 25 is_stmt 0 view .LVU10
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 3
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 3
 
 
   65 0026 8360     		str	r3, [r0, #8]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  107 004c 00BB     		cbnz	r0, .L7
  108              	.L2:
   64:Core/Src/adc.c ****   {
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 4
 
 
   65:Core/Src/adc.c ****     Error_Handler();
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  143              		.loc 1 84 3 is_stmt 1 view .LVU53
  144              		.loc 1 84 7 is_stmt 0 view .LVU54
  145 006e 0DEB0201 		add	r1, sp, r2
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 5
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 5
 
 
  146 0072 0D48     		ldr	r0, .L11
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  182              	.L8:
   73:Core/Src/adc.c ****   }
  183              		.loc 1 73 5 view .LVU65
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 6
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 6
 
 
  184 0096 FFF7FEFF 		bl	Error_Handler
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  229 0008 0193     		str	r3, [sp, #4]
  230 000a 0293     		str	r3, [sp, #8]
  231 000c 0393     		str	r3, [sp, #12]
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 7
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 7
 
 
  232 000e 0493     		str	r3, [sp, #16]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  128:Core/Src/adc.c ****   hadc2.Init.DMAContinuousRequests = ENABLE;
  269              		.loc 1 128 3 is_stmt 1 view .LVU92
  270              		.loc 1 128 36 is_stmt 0 view .LVU93
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 8
 
 
  271 0034 80F83020 		strb	r2, [r0, #48]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  309 0056 0593     		str	r3, [sp, #20]
  145:Core/Src/adc.c ****   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
  310              		.loc 1 145 3 is_stmt 1 view .LVU115
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 9
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 9
 
 
  311              		.loc 1 145 7 is_stmt 0 view .LVU116
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  347              		.loc 1 147 5 view .LVU125
  348 007c FFF7FEFF 		bl	Error_Handler
  349              	.LVL12:
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 10
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 10
 
 
  350 0080 EFE7     		b	.L15
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  397              		.loc 1 169 3 is_stmt 1 view .LVU132
  398              		.loc 1 169 15 is_stmt 0 view .LVU133
  399 0012 0368     		ldr	r3, [r0]
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 11
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 11
 
 
  400              		.loc 1 169 5 view .LVU134
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  214:Core/Src/adc.c **** 
  215:Core/Src/adc.c ****   /* USER CODE END ADC2_MspInit 0 */
  216:Core/Src/adc.c ****     /* ADC2 clock enable */
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 12
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 12
 
 
  217:Core/Src/adc.c ****     HAL_RCC_ADC12_CLK_ENABLED++;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  423 0024 3F4A     		ldr	r2, .L37+4
  424 0026 1368     		ldr	r3, [r2]
  425 0028 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 13
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 13
 
 
  426 002a 1360     		str	r3, [r2]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  192:Core/Src/adc.c ****     hdma_adc1.Init.Direction = DMA_PERIPH_TO_MEMORY;
  464              		.loc 1 192 5 is_stmt 1 discriminator 1 view .LVU156
  192:Core/Src/adc.c ****     hdma_adc1.Init.Direction = DMA_PERIPH_TO_MEMORY;
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 14
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 14
 
 
  465              		.loc 1 192 24 is_stmt 0 discriminator 1 view .LVU157
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  205:Core/Src/adc.c **** 
  502              		.loc 1 205 5 is_stmt 1 view .LVU175
  205:Core/Src/adc.c **** 
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 15
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 15
 
 
  503              		.loc 1 205 5 view .LVU176
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  544              		.loc 1 218 7 is_stmt 0 view .LVU189
  545 00a8 012B     		cmp	r3, #1
  546 00aa 2AD0     		beq	.L35
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 16
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 16
 
 
  547              	.L28:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  585 00d6 0360     		str	r3, [r0]
  237:Core/Src/adc.c ****     hdma_adc2.Init.PeriphInc = DMA_PINC_DISABLE;
  586              		.loc 1 237 5 is_stmt 1 discriminator 1 view .LVU206
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 17
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 17
 
 
  237:Core/Src/adc.c ****     hdma_adc2.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  249:Core/Src/adc.c **** 
  623              		.loc 1 249 5 view .LVU225
  624 00fe 5C62     		str	r4, [r3, #36]
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 18
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 18
 
 
  249:Core/Src/adc.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  673              	HAL_ADC_MspDeInit:
  674              	.LVL30:
  675              	.LFB126:
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 19
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 19
 
 
  256:Core/Src/adc.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  286:Core/Src/adc.c **** 
  287:Core/Src/adc.c ****   /* USER CODE END ADC2_MspDeInit 0 */
  288:Core/Src/adc.c ****     /* Peripheral clock disable */
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 20
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 20
 
 
  289:Core/Src/adc.c ****     HAL_RCC_ADC12_CLK_ENABLED--;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  726              		.loc 1 278 5 is_stmt 1 view .LVU250
  727 0032 A06B     		ldr	r0, [r4, #56]
  728 0034 FFF7FEFF 		bl	HAL_DMA_DeInit
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 21
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 21
 
 
  729              	.LVL35:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  776              		.set	.LANCHOR2,. + 0
  779              	HAL_RCC_ADC12_CLK_ENABLED:
  780 0000 00000000 		.space	4
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 22
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 22
 
 
  781              		.section	.bss.hadc1,"aw",%nobits
@@ -1310,33 +1310,33 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 1
  819              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h"
  820              		.file 11 "Core/Inc/adc.h"
  821              		.file 12 "Core/Inc/main.h"
-ARM GAS  C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s 			page 23
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccWB21eh.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 adc.c
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:20     .text.MX_ADC1_Init:00000000 $t
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:26     .text.MX_ADC1_Init:00000000 MX_ADC1_Init
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:201    .text.MX_ADC1_Init:000000a8 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:206    .text.MX_ADC2_Init:00000000 $t
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:212    .text.MX_ADC2_Init:00000000 MX_ADC2_Init
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:360    .text.MX_ADC2_Init:00000088 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:366    .text.HAL_ADC_MspInit:00000000 $t
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:372    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:656    .text.HAL_ADC_MspInit:00000120 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:667    .text.HAL_ADC_MspDeInit:00000000 $t
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:673    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:764    .text.HAL_ADC_MspDeInit:00000060 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:807    .bss.hdma_adc2:00000000 hdma_adc2
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:800    .bss.hdma_adc1:00000000 hdma_adc1
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:793    .bss.hadc2:00000000 hadc2
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:786    .bss.hadc1:00000000 hadc1
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:775    .bss.HAL_RCC_ADC12_CLK_ENABLED:00000000 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:779    .bss.HAL_RCC_ADC12_CLK_ENABLED:00000000 HAL_RCC_ADC12_CLK_ENABLED
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:782    .bss.hadc1:00000000 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:789    .bss.hadc2:00000000 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:796    .bss.hdma_adc1:00000000 $d
-C:\Users\User\AppData\Local\Temp\cc0Y6K8j.s:803    .bss.hdma_adc2:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:20     .text.MX_ADC1_Init:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:26     .text.MX_ADC1_Init:00000000 MX_ADC1_Init
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:201    .text.MX_ADC1_Init:000000a8 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:206    .text.MX_ADC2_Init:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:212    .text.MX_ADC2_Init:00000000 MX_ADC2_Init
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:360    .text.MX_ADC2_Init:00000088 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:366    .text.HAL_ADC_MspInit:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:372    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:656    .text.HAL_ADC_MspInit:00000120 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:667    .text.HAL_ADC_MspDeInit:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:673    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:764    .text.HAL_ADC_MspDeInit:00000060 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:807    .bss.hdma_adc2:00000000 hdma_adc2
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:800    .bss.hdma_adc1:00000000 hdma_adc1
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:793    .bss.hadc2:00000000 hadc2
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:786    .bss.hadc1:00000000 hadc1
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:775    .bss.HAL_RCC_ADC12_CLK_ENABLED:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:779    .bss.HAL_RCC_ADC12_CLK_ENABLED:00000000 HAL_RCC_ADC12_CLK_ENABLED
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:782    .bss.hadc1:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:789    .bss.hadc2:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:796    .bss.hdma_adc1:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccWB21eh.s:803    .bss.hdma_adc2:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_ADC_Init
