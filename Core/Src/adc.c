@@ -124,7 +124,7 @@ void MX_ADC2_Init(void)
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.NbrOfConversion = 2;
+  hadc2.Init.NbrOfConversion = 3;
   hadc2.Init.DMAContinuousRequests = ENABLE;
   hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc2.Init.LowPowerAutoWait = DISABLE;
@@ -149,7 +149,17 @@ void MX_ADC2_Init(void)
 
   /** Configure Regular Channel
   */
+  sConfig.Channel = ADC_CHANNEL_2;
   sConfig.Rank = ADC_REGULAR_RANK_2;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Rank = ADC_REGULAR_RANK_3;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -224,9 +234,8 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     PA4     ------> ADC2_IN1
     PA5     ------> ADC2_IN2
     PA6     ------> ADC2_IN3
-    PA7     ------> ADC2_IN4
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
+    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -295,9 +304,8 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
     PA4     ------> ADC2_IN1
     PA5     ------> ADC2_IN2
     PA6     ------> ADC2_IN3
-    PA7     ------> ADC2_IN4
     */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6);
 
     /* ADC2 DMA DeInit */
     HAL_DMA_DeInit(adcHandle->DMA_Handle);

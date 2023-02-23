@@ -84,6 +84,7 @@ int Side_SensorR,Side_SensorL;
 int Curve_Sensor;
 int SensR[9],SensL[9];
 int Side_SensR[9],Side_SensL[9],Curve_Sens[9];
+int Flag=0,FlagL=0,FlagR=0;
 double PGainCLB=0;
 double IGainCLB=0;
 double DGainCLB=0;
@@ -95,7 +96,7 @@ char Stime=0;
 int CommSpeed=9500;
 char buf[1];
 uint16_t analog1[2];
-uint16_t analog2[4];
+uint16_t analog2[3];
 uint8_t button_state = 1;
 
 /*void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
@@ -157,15 +158,15 @@ void sensGet(){
     SensR[Stime] = analog1[1];
     SensL[Stime] = analog1[0];
     Side_SensL[Stime] = analog2[1];
-    Side_SensR[Stime] = analog2[1];
+    Side_SensR[Stime] = analog2[2];
     Curve_Sens[Stime] = analog2[0];
     Stime++;
     }  
 void LineTrace(void){
   int SensVal,SensVal_D;
-  double PGain=70.1,IGain=0.000001,DGain=0.0;
-  if(stopFlg >= 3) CommSpeed=0;
+  double PGain=65.0,IGain=0.000001,DGain=0.0;
   SensVal = SensorR - SensorL;
+  if(stopFlg>=2)CommSpeed=0;
   if(SensVal <= 0 && !turnFlg){       
     turnFlg=1;
     SensVal_I = 0;
@@ -191,6 +192,29 @@ void LineTrace(void){
   //MotorR = int(CommSpeed - (SensVal * PGainCLB));
   //MotorL = int(CommSpeed + (SensVal * PGainCLB));
   }
+  /*void stop2(void){
+    if(stopFlg==2)
+  }*/
+  void stop(void){
+    if((Side_SensorL > 1600) && (Side_SensorR > 2000)){
+        if(Flag == 1){
+            Flag = 0;
+            if((FlagL == 1) && (FlagR == 1)){
+            }else{
+                if(FlagL == 1){
+                }else{
+                    stopFlg ++;
+                }
+            }
+            FlagL = 0;
+            FlagR = 0;
+        }
+    }else{
+        Flag = 1;
+        if(Side_SensorL < 1600)FlagL = 1;
+        if(Side_SensorR < 2000)FlagR = 1;
+    }
+}
   void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
     if(htim->Instance == TIM2){
@@ -200,6 +224,7 @@ void LineTrace(void){
       SensUp();
       Side_SensUp();
       LineTrace();
+      stop();
     }
   }/*
   PUTCHAR_PROTOTYPE {
@@ -256,43 +281,50 @@ int main(void)
     Error_Handler();
   }
   HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,0);
-  if(HAL_ADC_Start_DMA(&hadc2, (uint32_t *) analog2, 4) != HAL_OK){
+  if(HAL_ADC_Start_DMA(&hadc2, (uint32_t *) analog2, 3) != HAL_OK){
     Error_Handler();
   }
-  while(button_state){
-    button_state = HAL_GPIO_ReadPin(KEY1_GPIO_Port,KEY1_Pin);
-    HAL_GPIO_WritePin(LED_3_GPIO_Port,LED_3_Pin,0);
+  while(1){
+    while(button_state){
+      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 1);
+      __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,0);
+      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
+      __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,0);
+      button_state = HAL_GPIO_ReadPin(KEY1_GPIO_Port,KEY1_Pin);
+      HAL_GPIO_WritePin(LED_3_GPIO_Port,LED_3_Pin,0);
+    }
+    HAL_Delay(1000);
+    button_state=1;
 
-  }
   //HAL_UART_Receive_IT(&huart2, (uint16_t *)analog2, sizeof(analog2)/sizeof(analog2[0]));
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  while (1)
-  {
+    while (1)
+    {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 1);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,MotorL);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,MotorR);
+      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, 1);
+      __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,MotorL);
+      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
+      __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,MotorR);
 
-    if(Curve_Sensor<2550){
-      CommSpeed=10000;
-      HAL_GPIO_TogglePin(LED_2_GPIO_Port,LED_2_Pin);
-      HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,0);
-    }else{
-      CommSpeed=9500;
-      HAL_GPIO_TogglePin(LED_4_GPIO_Port,LED_4_Pin);
-      HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,0);
-    }
-    //HAL_UART_Transmit(&huart2, (uint16_t *)analog1, sizeof(analog2)/sizeof(analog2[0]), 0xFFFF);
-   // HAL_UART_Receive(&huart2, (uint16_t *)analog1, sizeof(analog2)/sizeof(analog2[0]), 0xFFFF);
-    printf("%d\r\n",Curve_Sens[0]);
+      if(Curve_Sensor<2550){
+        CommSpeed=10500;
+        HAL_GPIO_TogglePin(LED_2_GPIO_Port,LED_2_Pin);
+        HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,0);
+      }else{
+        CommSpeed=9000;
+        HAL_GPIO_TogglePin(LED_4_GPIO_Port,LED_4_Pin);
+        HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,0);
+      }
+      //printf("%d\r\n",Side_SensorR);
     //HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,analog2[3]%2);
+  if(!(button_state))break;
+    }
   }
   /* USER CODE END 3 */
 }
