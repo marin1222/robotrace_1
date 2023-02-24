@@ -166,6 +166,15 @@ void LineTrace(void){
   int SensVal,SensVal_D;
   double PGain=65.0,IGain=0.000001,DGain=0.0;
   SensVal = SensorR - SensorL;
+  if(Curve_Sensor<2550){
+    CommSpeed=10500;
+    HAL_GPIO_TogglePin(LED_2_GPIO_Port,LED_2_Pin);
+    HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,0);
+  }else{
+    CommSpeed=9000;
+    HAL_GPIO_TogglePin(LED_4_GPIO_Port,LED_4_Pin);
+    HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,0);
+  }
   if(stopFlg>=2)CommSpeed=0;
   if(SensVal <= 0 && !turnFlg){       
     turnFlg=1;
@@ -181,12 +190,12 @@ void LineTrace(void){
   SensVal_D = SensValBuf - SensVal;       //左右のセンサー値の差の変化
   SensValBuf = SensVal;
   MotorR = ((CommSpeed - ((SensVal * PGain)+(SensVal_I*IGain)-(SensVal_D*DGain)))/10); 
-  if(MotorL < 0 ){
-      MotorL = MotorL * (-1);
+  if(MotorR < 0 ){
+      MotorL = MotorR * (-1);
   }
   MotorL = ((CommSpeed + ((SensVal * PGain)+(SensVal_I*IGain)-(SensVal_D*DGain)))/10);
-  if(MotorR < 0 ){
-      MotorR = MotorR * (-1);
+  if(MotorL < 0 ){
+      MotorR = MotorL * (-1);
   }
   ledval = (SensVal_IBuf / (-100000));
   //MotorR = int(CommSpeed - (SensVal * PGainCLB));
@@ -311,19 +320,9 @@ int main(void)
       __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,MotorL);
       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, 0);
       __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,MotorR);
-
-      if(Curve_Sensor<2550){
-        CommSpeed=10500;
-        HAL_GPIO_TogglePin(LED_2_GPIO_Port,LED_2_Pin);
-        HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,0);
-      }else{
-        CommSpeed=9000;
-        HAL_GPIO_TogglePin(LED_4_GPIO_Port,LED_4_Pin);
-        HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,0);
-      }
       //printf("%d\r\n",Side_SensorR);
     //HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,analog2[3]%2);
-  if(!(button_state))break;
+  //if(!(button_state))break;
     }
   }
   /* USER CODE END 3 */
